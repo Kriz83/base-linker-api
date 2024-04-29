@@ -6,6 +6,7 @@ namespace App\MessageHandler;
 
 use App\Api\Request\OrderInterface;
 use App\Message\AllOrders;
+use Psr\Log\LoggerInterface;
 use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 
 #[AsMessageHandler]
@@ -13,6 +14,7 @@ class AllOrdersHandler
 {
     public function __construct(
         private OrderInterface $order,
+        private LoggerInterface $logger,
     ) {
     }
 
@@ -21,9 +23,9 @@ class AllOrdersHandler
         try {
             $this->order->getOrders($message->getData());
         } catch (\Exception $e) {
-            echo "Error: <br>";
-            echo $e->getMessage();
-            echo "<br><br>";
+            $this->logger->error(
+                "Error while getting orders: {$e->getMessage()}"
+            );
         }
     }
 }
