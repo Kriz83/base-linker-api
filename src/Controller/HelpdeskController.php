@@ -33,6 +33,10 @@ class HelpdeskController extends AbstractController
 
         $this->messageBus->dispatch(new AllOrders($data));
 
-        return $this->render('helpdesk/index.html.twig', []);
+        return $this->render('helpdesk/index.html.twig',
+            [
+                'data' => $data,
+            ]
+        );
     }
 }

@@ -21,7 +21,9 @@ class AllOrdersHandler
         try {
             $this->order->getOrders($message->getData());
         } catch (\Exception $e) {
+            echo "Error: <br>";
             echo $e->getMessage();
+            echo "<br><br>";
         }
     }
 }

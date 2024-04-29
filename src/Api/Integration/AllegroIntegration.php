@@ -6,5 +6,10 @@ namespace App\Api\Integration;
 
 class AllegroIntegration extends AbstractMarketplaceIntegration
 {
-    private const INTEGRATION_NAME = 'allegro';
+    protected const INTEGRATION_NAME = 'allegro';
+
+    public function getIntegrationName(): string
+    {
+        return self::INTEGRATION_NAME;
+    }
 }

@@ -1,6 +1,11 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-    Loading orders
+    {% if data.integrationName is defined %}
+        Loading orders from:
+        {{ data.integrationName }}
+    {% else %}
+        Sorry but there is no such integration!
+    {% endif %}
 {% endblock %}
 
