@@ -6,10 +6,15 @@ namespace App\Api\Integration;
 
 abstract class AbstractMarketplaceIntegration implements MarketplaceIntegrationInterface
 {
-    protected const INTEGRATION_NAME = 'default';
+    private const INTEGRATION_NAME = 'default';
 
     public function getIntegrationName(): string
     {
-        return static::INTEGRATION_NAME;
+        return self::INTEGRATION_NAME;
+    }
+
+    public function supports(string $integrationName): bool
+    {
+        return $integrationName === $this->getIntegrationName();
     }
 }

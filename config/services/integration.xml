@@ -19,10 +19,9 @@
 
         <service class="App\Api\Integration\IntegrationStrategy"
                  id="app.api.integration.integration_strategy"
-        />
-
-        <service id="App\DependencyInjection\IntegrationCompilerPass">
-            <tag name="compiler.pass" />
+        >
+            <argument type="tagged" tag="integration" index-by="integration_name" />
+            <argument type="service" id="Symfony\Component\Messenger\MessageBusInterface" />
         </service>
     </services>
 </container>

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Api\Request;
 
-use App\Api\BaselinkerClient;
+use App\Api\ApiHttpClientInterface;
 use GuzzleHttp\Psr7\Response;
 
 class Order implements OrderInterface
@@ -15,7 +15,7 @@ class Order implements OrderInterface
 
 
     public function __construct(
-        private BaselinkerClient $client
+        private ApiHttpClientInterface $client
     ) {
     }
 

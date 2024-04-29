@@ -7,7 +7,7 @@ namespace App\Api;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Response;
 
-class BaselinkerClient
+class BaselinkerClient implements ApiHttpClientInterface
 {
     public const URL = 'https://api.baselinker.com/';
 

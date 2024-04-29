@@ -6,5 +6,5 @@ namespace App\Api\Integration;
 
 class AmazonIntegration extends AbstractMarketplaceIntegration
 {
-    public const INTEGRATION_NAME = 'amazon';
+    private const INTEGRATION_NAME = 'amazon';
 }
